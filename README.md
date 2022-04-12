@@ -2,7 +2,7 @@
 
 ### Membros:
 
-Gean Guilherme dos Santos (Fullstack)
+Gean Guilherme dos Santos (Fullstack)  
 Rúbia Aires Marques Wardil (Fullstack)
 
 ### Descrição do sistema:
