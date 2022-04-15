@@ -5,12 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ExercisesActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/books_recycler"
+        android:id="@+id/exercises_recyler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent" />
 </LinearLayout>

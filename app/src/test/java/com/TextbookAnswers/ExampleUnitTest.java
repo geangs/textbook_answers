@@ -1,4 +1,4 @@
-package com.TextbookAnswers;
+package com.textbookanswers;
 
 import org.junit.Test;
 
