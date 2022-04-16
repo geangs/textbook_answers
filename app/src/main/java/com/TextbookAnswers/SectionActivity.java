@@ -32,7 +32,9 @@ public class SectionActivity extends AppCompatActivity implements SectionAdapter
         sectionDatabase = SectionDatabase.getInstance(this);
         sectionDao = sectionDatabase.sectionDao();
         sections = new ArrayList<>();
-        sections.addAll(sectionDao.getSubchapters(extras.getInt("owner_id")));
+        //sections.addAll(sectionDao.getSubchapters(extras.getInt("owner_id")));
+
+
 
         recyclerView = findViewById(R.id.subchapter_recycler);
         recyclerView.setHasFixedSize(true);
@@ -40,6 +42,11 @@ public class SectionActivity extends AppCompatActivity implements SectionAdapter
         adapter = new SectionAdapter(sections,this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+        for (int i = 0; i < 5; i++) {
+            sections.add(new Section(0,i));
+        }
+        adapter.notifyDataSetChanged();
 
 //        for (int i = 0; i < 6; i++) {
 //            sectionDao.insertSubchapter(new Section(extras.getInt("owner_id"), sectionDao.getSubchapters(extras.getInt("owner_id")).size()));

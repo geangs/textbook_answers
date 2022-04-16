@@ -37,7 +37,9 @@ public class ExercisesActivity extends AppCompatActivity implements ExerciseAdap
 
         exerciseDatabase = ExerciseDatabase.getInstance(this);
         exerciseDao = exerciseDatabase.exerciseDao();
-        exercises.addAll(exerciseDao.getExercises(extras.getInt("owner_id")));
+        //exercises.addAll(exerciseDao.getExercises(extras.getInt("owner_id")));
+
+
 
         recyclerView = findViewById(R.id.exercises_recyler);
         recyclerView.setHasFixedSize(true);
@@ -45,6 +47,11 @@ public class ExercisesActivity extends AppCompatActivity implements ExerciseAdap
         adapter = new ExerciseAdapter(exercises,this,exerciseDao,extras.getInt("owner_id"));
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+        for (int i = 0; i < 20; i++) {
+            exercises.add(new Exercise(0,i,"Resposta"+i));
+        }
+        adapter.notifyDataSetChanged();
 
 //        for (int i = 0; i < 30; i++) {
 //            addExercise(null);

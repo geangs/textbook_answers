@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements BookAdapter.OnBookClick {
@@ -30,14 +32,21 @@ public class MainActivity extends AppCompatActivity implements BookAdapter.OnBoo
 
         bookDatabase = BookDatabase.getInstance(this);
         bookDao = bookDatabase.bookDao();
+
         books = new ArrayList<>();
-        books.addAll(bookDao.getBooks());
+
+        //books.addAll(bookDao.getBooks());
+
+
         recyclerView = findViewById(R.id.books_recycler);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         adapter = new BookAdapter(books,this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+        books.add(new Book("Livro teste 1"));
+        adapter.notifyDataSetChanged();
 
         //bookDao.insertBook(new Book("Livro teste 1"));
 
