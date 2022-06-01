@@ -15,3 +15,4 @@
 local.properties
 /API/**/obj
 **/.vs
+**/bin
