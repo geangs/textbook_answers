@@ -15,6 +15,7 @@ namespace Infra.Database.Repositories
         public void Add(Book book)
         {
             textBookAnswersContext.books.Add(book);
+            textBookAnswersContext.SaveChanges();
         }
 
         public Book? Get(int id)
