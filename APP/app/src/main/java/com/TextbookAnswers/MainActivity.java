@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements BookAdapter.OnBoo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.getSupportActionBar().hide();
+
+
         setContentView(R.layout.activity_main);
 
         bookDatabase = BookDatabase.getInstance(this);

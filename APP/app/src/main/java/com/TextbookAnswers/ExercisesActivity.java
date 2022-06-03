@@ -28,6 +28,7 @@ public class ExercisesActivity extends AppCompatActivity implements ExerciseAdap
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises);
+        this.getSupportActionBar().hide();
 
         setTitle("Select exercise");
 

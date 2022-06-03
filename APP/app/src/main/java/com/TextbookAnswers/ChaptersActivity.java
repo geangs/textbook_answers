@@ -26,6 +26,7 @@ public class ChaptersActivity extends AppCompatActivity implements ChapterAdapte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapters);
+        this.getSupportActionBar().hide();
 
         setTitle("Select chapter");
 
