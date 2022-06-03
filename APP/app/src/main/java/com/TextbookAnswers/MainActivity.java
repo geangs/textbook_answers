@@ -46,9 +46,13 @@ public class MainActivity extends AppCompatActivity implements BookAdapter.OnBoo
         recyclerView.setAdapter(adapter);
 
         books.add(new Book("Livro teste 1"));
+        books.add(new Book("Livro teste 2"));
+        books.add(new Book("Livro teste 3"));
+        books.add(new Book("Livro teste 4"));
+        books.add(new Book("Livro teste 5"));
         adapter.notifyDataSetChanged();
 
-        //bookDao.insertBook(new Book("Livro teste 1"));
+
 
     }
 
