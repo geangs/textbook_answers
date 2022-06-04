@@ -17,7 +17,7 @@ public class AnswerActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
 
-        ((TextView)findViewById(R.id.exerciseNumberText)).setText("Question ".concat(Integer.toString(extras.getInt("position"))));
-        ((TextView)findViewById(R.id.answerText)).setText("Answer: ".concat(extras.getString("answer")));
+        //((TextView)findViewById(R.id.exerciseNumberText)).setText("Question ".concat(Integer.toString(extras.getInt("position"))));
+        //((TextView)findViewById(R.id.answerText)).setText("Answer: ".concat(extras.getString("answer")));
     }
 }
