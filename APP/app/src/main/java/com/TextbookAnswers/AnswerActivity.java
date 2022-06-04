@@ -1,11 +1,24 @@
 package com.textbookanswers;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class AnswerActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class AnswerActivity extends AppCompatActivity implements AnswerAdapter.OnAnswerClick{
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+
+    ArrayList<Answer> answers;
+
+    Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,11 +26,20 @@ public class AnswerActivity extends AppCompatActivity {
         this.getSupportActionBar().hide();
         setContentView(R.layout.activity_answer);
 
-        setTitle("answer");
+        extras = getIntent().getExtras();
 
-        Bundle extras = getIntent().getExtras();
+        answers = Repository.getAnswers(extras.getInt("owner_id"));
 
-        //((TextView)findViewById(R.id.exerciseNumberText)).setText("Question ".concat(Integer.toString(extras.getInt("position"))));
-        //((TextView)findViewById(R.id.answerText)).setText("Answer: ".concat(extras.getString("answer")));
+        recyclerView = findViewById(R.id.answer_recycler);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        adapter = new AnswerAdapter(answers,this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onAnswerClick(int position) {
+
     }
 }

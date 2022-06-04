@@ -33,4 +33,13 @@ public class Repository {
 
         return exercises;
     }
+
+    public static ArrayList<Answer> getAnswers(int exerciseId){
+        ArrayList<Answer> exercises = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            exercises.add(new Answer("questnion"+i,"resoistaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+i,i,i));
+        }
+
+        return exercises;
+    }
 }

@@ -55,8 +55,9 @@ public class ExercisesActivity extends AppCompatActivity implements ExerciseAdap
     @Override
     public void onExerciseClick(int position) {
         Intent intent = new Intent(this,AnswerActivity.class);
-        intent.putExtra("position",position);
-        intent.putExtra("answer",exercises.get(position).answer);
+        //intent.putExtra("position",position);
+        //intent.putExtra("answer",exercises.get(position).answer);
+        intent.putExtra("exercise_id",position);
         startActivity(intent);
     }
 
