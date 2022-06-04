@@ -33,7 +33,9 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
     public void onBindViewHolder(@NonNull ChapterViewHolder chapterViewHolder, int i) {
 
         Chapter chapter = chapters.get(i);
-        chapterViewHolder.chapterTitle.setText(Integer.toString(chapter.number+1));
+        chapterViewHolder.chapterTitle.setText(chapter.name);
+        chapterViewHolder.chapterNum.setText(Integer.toString(chapter.number));
+
 
     }
 
@@ -45,6 +47,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
     public static class ChapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView chapterTitle;
+        public TextView chapterNum;
 
         public OnChapterClick onChapterClick;
 
@@ -52,6 +55,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
 
             super(itemView);
             chapterTitle = itemView.findViewById(R.id.chapter_title);
+            chapterNum = itemView.findViewById(R.id.chapter_number);
             this.onChapterClick = onBookClick;
             itemView.setOnClickListener(this);
 

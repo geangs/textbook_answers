@@ -4,14 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import java.io.File;
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements BookAdapter.OnBookClick {
@@ -64,6 +65,14 @@ public class MainActivity extends AppCompatActivity implements BookAdapter.OnBoo
 
         Intent intent = new Intent(this, ChaptersActivity.class);
         intent.putExtra("book_id",position);
+        startActivity(intent);
+    }
+
+
+    public void search(View view){
+
+        Intent intent= new Intent(this,SearchResultActivity.class);
+        intent.putExtra("term",((EditText)findViewById(R.id.book_search)).getText().toString());
         startActivity(intent);
     }
 

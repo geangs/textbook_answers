@@ -34,11 +34,8 @@ public class ChaptersActivity extends AppCompatActivity implements ChapterAdapte
 
         chapterDatabase = ChapterDatabase.getInstance(this);
         chapterDao = chapterDatabase.chapterDao();
-        chapters = new ArrayList<>();
+        chapters = Repository.getChapters(extras.getInt("book_id"));
         //chapters.addAll(chapterDao.getChapters(extras.getInt("book_id")));
-
-
-
 
         recyclerView = findViewById(R.id.chapters_recycler);
         recyclerView.setHasFixedSize(true);
@@ -47,9 +44,6 @@ public class ChaptersActivity extends AppCompatActivity implements ChapterAdapte
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-        for (int i = 0; i < 5; i++) {
-            chapters.add(new Chapter(0,i));
-        }
         adapter.notifyDataSetChanged();
 
 //        for (int i = 0; i < 6; i++) {
@@ -64,7 +58,7 @@ public class ChaptersActivity extends AppCompatActivity implements ChapterAdapte
     @Override
     public void onChapterClick(int position) {
 
-        Intent intent = new Intent(this, SectionActivity.class);
+        Intent intent = new Intent(this, ExercisesActivity.class);
         intent.putExtra("owner_id",chapters.get(position).id);
         startActivity(intent);
 

@@ -44,6 +44,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     public static class BookViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView bookTitle;
+
         public OnBookClick onBookClick;
 
         public BookViewHolder(@NonNull View itemView,OnBookClick onBookClick) {
