@@ -59,5 +59,12 @@ public class Repository {
         return 0;
     }
 
+    public static boolean validateUser(User user){
+        return true;
+    }
+
+    public static boolean registerUser(User user){
+        return true;
+    }
 
 }
