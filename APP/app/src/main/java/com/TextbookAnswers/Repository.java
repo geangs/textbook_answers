@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class Repository {
 
     public static ArrayList<Chapter> getChapters(int bookId){
+        //retorna todas os capitulos do livro com id = bookID
+
 
         ArrayList<Chapter> exercises = new ArrayList<>();
         for (int i = 0; i < 21; i++) {
@@ -15,6 +17,7 @@ public class Repository {
     }
 
     public static ArrayList<Exercise> getExercises(int chapterId){
+        //return todos os exercicio do capitulo com id chapterId
 
         ArrayList<Exercise> exercises = new ArrayList<>();
         for (int i = 0; i < 21; i++) {
@@ -25,6 +28,8 @@ public class Repository {
     }
 
     public static ArrayList<Answer> getAnswers(int exerciseId){
+        //retorna todas as repostas do exercicio com id exerciseId
+
         ArrayList<Answer> exercises = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
             exercises.add(new Answer("questnion"+i,"resoistaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+i,i,i));
@@ -45,6 +50,8 @@ public class Repository {
 
 
     public static int getExerciseId(int chapterId,int exerciseNumber){
+        //retorna o id do exercicio exerciseNumber do capitlo com id = chapterId
+
         return 0;
     }
 
