@@ -28,7 +28,7 @@ public class AnswerActivity extends AppCompatActivity implements AnswerAdapter.O
 
         extras = getIntent().getExtras();
 
-        answers = Repository.getAnswers(extras.getInt("owner_id"));
+        answers = Repository.getAnswers(extras.getInt("exercise_id"));
 
         recyclerView = findViewById(R.id.answer_recycler);
         recyclerView.setHasFixedSize(true);

@@ -15,8 +15,6 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
 
     private ArrayList<Exercise> exercises;
     private OnExerciseClick onExerciseClick;
-    private ExerciseDao exerciseDao;
-    private int ownerId;
 
     @NonNull
     @Override
@@ -26,12 +24,10 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
         return new ExerciseViewHolder(v,onExerciseClick);
     }
 
-    public ExerciseAdapter(ArrayList<Exercise> exercises, OnExerciseClick onExerciseClick, ExerciseDao exerciseDao, int id){
+    public ExerciseAdapter(ArrayList<Exercise> exercises, OnExerciseClick onExerciseClick){
 
         this.exercises = exercises;
         this.onExerciseClick = onExerciseClick;
-        this.exerciseDao = exerciseDao;
-        this.ownerId = id;
     }
 
     @Override

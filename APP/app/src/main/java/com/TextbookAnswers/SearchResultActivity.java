@@ -40,9 +40,6 @@ public class SearchResultActivity extends AppCompatActivity implements BookAdapt
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-
-
-
         adapter.notifyDataSetChanged();
 
     }
@@ -50,7 +47,7 @@ public class SearchResultActivity extends AppCompatActivity implements BookAdapt
     @Override
     public void onBookClick(int position) {
         Intent intent = new Intent(this, ChaptersActivity.class);
-        intent.putExtra("book_id",position);
+        intent.putExtra("book_id",books.get(position).id);
         startActivity(intent);
     }
 

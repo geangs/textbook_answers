@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements BookAdapter.OnBoo
     public void onBookClick(int position) {
 
         Intent intent = new Intent(this, ChaptersActivity.class);
-        intent.putExtra("book_id",position);
+        intent.putExtra("book_id",books.get(position).id);
         startActivity(intent);
     }
 

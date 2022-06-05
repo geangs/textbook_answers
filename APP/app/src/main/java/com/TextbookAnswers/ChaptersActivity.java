@@ -59,7 +59,7 @@ public class ChaptersActivity extends AppCompatActivity implements ChapterAdapte
     public void onChapterClick(int position) {
 
         Intent intent = new Intent(this, ExercisesActivity.class);
-        intent.putExtra("owner_id",chapters.get(position).id);
+        intent.putExtra("chapter_id",Repository.getChapterId(extras.getInt("book_id"),position));
         startActivity(intent);
 
     }
