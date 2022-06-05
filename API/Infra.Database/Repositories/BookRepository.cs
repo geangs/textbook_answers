@@ -14,18 +14,18 @@ namespace Infra.Database.Repositories
         }
         public void Add(Book book)
         {
-            textBookAnswersContext.books.Add(book);
+            textBookAnswersContext.Books.Add(book);
             textBookAnswersContext.SaveChanges();
         }
 
         public Book? Get(int id)
         {
-            return textBookAnswersContext.books.Find(id);
+            return textBookAnswersContext.Books.Find(id);
         }
 
         public IEnumerable<Book> GetAll()
         {
-            return textBookAnswersContext.books.AsEnumerable();
+            return textBookAnswersContext.Books.AsEnumerable();
         }
     }
 }

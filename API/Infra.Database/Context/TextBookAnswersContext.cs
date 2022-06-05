@@ -12,6 +12,7 @@ namespace Infra.Database.Context
     {
         public TextBookAnswersContext(DbContextOptions<TextBookAnswersContext> options) : base(options) { }
 
-        public DbSet<Book> books { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

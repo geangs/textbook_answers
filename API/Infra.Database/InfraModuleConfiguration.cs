@@ -20,6 +20,7 @@ namespace Infra.Database
             services.AddDbContext<TextBookAnswersContext>(options =>
                 options.UseSqlServer(connectionString));
             services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
         }
         public static void SeedDatabase(this IServiceProvider serviceProvider)
         {
