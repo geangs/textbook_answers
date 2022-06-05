@@ -6,26 +6,26 @@ namespace Infra.Database.Repositories
 {
     public class BookRepository : IBookRepository
     {
-        private readonly TextBookAnswersContext textBookAnswersContext;
+        private readonly TextBookAnswersContext context;
 
-        public BookRepository(TextBookAnswersContext textBookAnswersContext)
+        public BookRepository(TextBookAnswersContext context)
         {
-            this.textBookAnswersContext = textBookAnswersContext;
+            this.context = context;
         }
         public void Add(Book book)
         {
-            textBookAnswersContext.Books.Add(book);
-            textBookAnswersContext.SaveChanges();
+            context.Books.Add(book);
+            context.SaveChanges();
         }
 
         public Book? Get(int id)
         {
-            return textBookAnswersContext.Books.Find(id);
+            return context.Books.Find(id);
         }
 
         public IEnumerable<Book> GetAll()
         {
-            return textBookAnswersContext.Books.AsEnumerable();
+            return context.Books.AsEnumerable();
         }
     }
 }
