@@ -21,6 +21,9 @@ namespace Infra.Database
                 options.UseSqlServer(connectionString));
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IChapterRepository, ChapterRepository>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IAnswerRepository, AnswerRepository>();
         }
         public static void SeedDatabase(this IServiceProvider serviceProvider)
         {
@@ -30,6 +33,7 @@ namespace Infra.Database
                 try
                 {
                     var context = services.GetRequiredService<TextBookAnswersContext>();
+                    context.Database.EnsureDeleted();
                     context.Database.EnsureCreated();
 
                 }
