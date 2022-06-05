@@ -33,7 +33,6 @@ namespace Infra.Database
                 try
                 {
                     var context = services.GetRequiredService<TextBookAnswersContext>();
-                    context.Database.EnsureDeleted();
                     context.Database.EnsureCreated();
 
                 }
