@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Domain.Services;
 using Domain.Entities;
+using Domain.Adapters;
 
 namespace API.Controllers
 {
@@ -8,29 +8,29 @@ namespace API.Controllers
     [Route("[controller]")]
     public class BookController : Controller
     {
-        private readonly IBookService bookService;
+        private readonly IBookRepository bookRepository;
 
-        public BookController(IBookService bookService)
+        public BookController(IBookRepository bookRepository)
         {
-            this.bookService = bookService;
+            this.bookRepository = bookRepository;
         }
 
         [HttpGet]
         public IEnumerable<Book> GetAllBooks()
         {
-            return bookService.GetAll();
+            return bookRepository.GetAll();
         }
 
         [HttpPost]
         public void Add(Book book)
         {
-            bookService.Add(book);
+            bookRepository.Add(book);
         }
 
         [HttpGet("{bookId:int}")]
         public Book? GetById(int bookId)
         {
-            return bookService.Get(bookId);
+            return bookRepository.Get(bookId);
         }
     }
 }

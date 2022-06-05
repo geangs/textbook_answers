@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using Infra.Database;
 using Microsoft.AspNetCore.Http.Json;
-using Aplication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +14,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDatabaseConfiguration(builder.Configuration.GetConnectionString("DefaultConnection"));
-builder.Services.AddApplicationDependencies();
 
 builder.Services.Configure<JsonOptions>(options =>
 {
