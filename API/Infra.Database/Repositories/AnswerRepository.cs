@@ -39,5 +39,11 @@ namespace Infra.Database.Repositories
             answer.Downvotes += 1;
             context.SaveChanges();
         }
+
+        public void AddAnswer(Answer answer)
+        {
+            context.Answers.Add(answer);
+            context.SaveChanges();
+        }
     }
 }
