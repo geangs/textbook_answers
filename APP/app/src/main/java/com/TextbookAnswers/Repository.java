@@ -63,6 +63,18 @@ public class Repository {
         };
     }
 
+    public static Answer getAnswer(int exerciseId,int number){
+        return new Answer("","",0,0);
+    }
+
+    public static void upvote(Answer answer){
+
+    }
+
+    public static void downvote(Answer answer){
+
+    }
+
     public static int getChapterId(int bookId,int chapterNumber){
         return 0;
     }

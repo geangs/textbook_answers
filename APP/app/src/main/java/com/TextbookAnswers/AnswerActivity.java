@@ -37,7 +37,7 @@ public class AnswerActivity extends AppCompatActivity implements AnswerAdapter.O
         recyclerView = findViewById(R.id.answer_recycler);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new AnswerAdapter(answers,this);
+        adapter = new AnswerAdapter(answers,this,extras.getInt("exercise_id"));
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }
