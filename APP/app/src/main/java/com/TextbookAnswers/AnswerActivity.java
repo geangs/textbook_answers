@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,6 +30,8 @@ public class AnswerActivity extends AppCompatActivity implements AnswerAdapter.O
 
         extras = getIntent().getExtras();
 
+        ((TextView)findViewById(R.id.answer_question)).setText(Repository.getExercise(extras.getInt("exercise_id")).question);
+
         answers = Repository.getAnswers(extras.getInt("exercise_id"));
 
         recyclerView = findViewById(R.id.answer_recycler);
@@ -41,5 +45,11 @@ public class AnswerActivity extends AppCompatActivity implements AnswerAdapter.O
     @Override
     public void onAnswerClick(int position) {
 
+    }
+
+    public void addAnswer(View view){
+        Intent intent = new Intent(this,AddAnswer.class);
+        intent.putExtra("exercise_id",extras.getInt("exercise_id"));
+        startActivity(intent);
     }
 }

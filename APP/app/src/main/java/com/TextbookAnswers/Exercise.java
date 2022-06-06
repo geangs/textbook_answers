@@ -12,6 +12,7 @@ public class Exercise {
     public int ownerId;
     public int number;
     public String answer;
+    public String question;
 
     @Ignore
     public Exercise(int ownerId, int number) {

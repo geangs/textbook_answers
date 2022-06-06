@@ -55,6 +55,14 @@ public class Repository {
         return 0;
     }
 
+    public static Exercise getExercise(int exerciseId){
+        return new Exercise(0,0){
+            {
+                question = "question feiwoajf dosajfdlshafurhwag fsjgrioesjgp;fklsjg;lfsdjssssssss";
+            }
+        };
+    }
+
     public static int getChapterId(int bookId,int chapterNumber){
         return 0;
     }
@@ -64,6 +72,10 @@ public class Repository {
     }
 
     public static boolean registerUser(User user){
+        return true;
+    }
+
+    public static boolean addAnswer(String answer,String exerciseId){
         return true;
     }
 
