@@ -1,0 +1,57 @@
+com/TextbookAnswers/BookAdapter.java
+ com.textbookanswers.BookAdapter
+ com.textbookanswers.BookAdapter$BookViewHolder
+ com.textbookanswers.BookAdapter$OnBookClick
+com/TextbookAnswers/SectionDao.java
+ com.textbookanswers.SectionDao
+com/TextbookAnswers/BookTitleDialog.java
+ com.textbookanswers.BookTitleDialog
+ com.textbookanswers.BookTitleDialog$1
+com/TextbookAnswers/ChapterAdapter.java
+ com.textbookanswers.ChapterAdapter
+ com.textbookanswers.ChapterAdapter$ChapterViewHolder
+ com.textbookanswers.ChapterAdapter$OnChapterClick
+com/TextbookAnswers/Chapter.java
+ com.textbookanswers.Chapter
+com/TextbookAnswers/BookDatabase.java
+ com.textbookanswers.BookDatabase
+com/TextbookAnswers/Exercise.java
+ com.textbookanswers.Exercise
+com/TextbookAnswers/ChapterDao.java
+ com.textbookanswers.ChapterDao
+com/TextbookAnswers/Properties.java
+ com.textbookanswers.Properties
+com/TextbookAnswers/ExerciseDao.java
+ com.textbookanswers.ExerciseDao
+com/TextbookAnswers/ExerciseDatabase.java
+ com.textbookanswers.ExerciseDatabase
+com/TextbookAnswers/ExercisesActivity.java
+ com.textbookanswers.ExercisesActivity
+com/TextbookAnswers/Section.java
+ com.textbookanswers.Section
+com/TextbookAnswers/BookDao.java
+ com.textbookanswers.BookDao
+com/TextbookAnswers/ExerciseAdapter.java
+ com.textbookanswers.ExerciseAdapter
+ com.textbookanswers.ExerciseAdapter$ExerciseViewHolder
+ com.textbookanswers.ExerciseAdapter$OnExerciseClick
+com/TextbookAnswers/Book.java
+ com.textbookanswers.Book
+com/TextbookAnswers/ChapterDatabase.java
+ com.textbookanswers.ChapterDatabase
+com/TextbookAnswers/ChaptersActivity.java
+ com.textbookanswers.ChaptersActivity
+com/TextbookAnswers/MainActivity.java
+ com.textbookanswers.MainActivity
+com/TextbookAnswers/SectionActivity.java
+ com.textbookanswers.SectionActivity
+com/textbookanswers/BuildConfig.java
+ com.textbookanswers.BuildConfig
+com/TextbookAnswers/SectionAdapter.java
+ com.textbookanswers.SectionAdapter
+ com.textbookanswers.SectionAdapter$OnSectionClick
+ com.textbookanswers.SectionAdapter$SectionViewHolder
+com/TextbookAnswers/SectionDatabase.java
+ com.textbookanswers.SectionDatabase
+com/TextbookAnswers/AnswerActivity.java
+ com.textbookanswers.AnswerActivity
