@@ -13,7 +13,7 @@ public interface ChapterDao {
     @Insert
     void insertChapter(Chapter chapter);
 
-    @Query("SELECT * FROM Chapter WHERE ownerId = :bookId")
+    @Query("SELECT * FROM Chapter WHERE bookId = :bookId")
     List<Chapter> getChapters(int bookId);
 
     @Query("DELETE FROM Chapter")

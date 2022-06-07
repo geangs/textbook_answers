@@ -16,6 +16,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         this.getSupportActionBar().hide();
 
+        Repository.init();
+
     }
 
     public void entrar(View view){

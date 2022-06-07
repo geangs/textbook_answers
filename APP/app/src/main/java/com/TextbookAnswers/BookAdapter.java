@@ -33,6 +33,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
         Book book = books.get(i);
         bookViewHolder.bookTitle.setText(book.title);
+        bookViewHolder.bookAuthor.setText(book.author);
 
     }
 
@@ -44,6 +45,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     public static class BookViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView bookTitle;
+        public TextView bookAuthor;
 
         public OnBookClick onBookClick;
 
@@ -51,6 +53,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
             super(itemView);
             bookTitle = itemView.findViewById(R.id.fjdsiao);
+            bookAuthor = itemView.findViewById(R.id.autor);
             this.onBookClick = onBookClick;
             itemView.setOnClickListener(this);
 

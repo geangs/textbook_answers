@@ -9,19 +9,19 @@ public class Exercise {
 
     @PrimaryKey(autoGenerate = true)
     public int id;
-    public int ownerId;
+    public int chapterId;
     public int number;
     public String answer;
     public String question;
 
     @Ignore
-    public Exercise(int ownerId, int number) {
-        this.ownerId = ownerId;
+    public Exercise(int chapterId, int number) {
+        this.chapterId = chapterId;
         this.number = number;
     }
 
-    public Exercise(int ownerId, int number,String answer) {
-        this.ownerId = ownerId;
+    public Exercise(int chapterId, int number, String answer) {
+        this.chapterId = chapterId;
         this.number = number;
         this.answer = answer;
     }

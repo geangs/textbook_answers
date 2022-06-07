@@ -12,7 +12,7 @@ public interface ExerciseDao {
     @Insert
     void insertExercise(Exercise exercise);
 
-    @Query("SELECT * FROM Exercise WHERE ownerId = :chapterId")
+    @Query("SELECT * FROM Exercise WHERE chapterId = :chapterId")
     List<Exercise> getExercises(int chapterId);
 
     @Query("DELETE FROM Exercise")
