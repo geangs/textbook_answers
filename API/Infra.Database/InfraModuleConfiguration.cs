@@ -33,6 +33,8 @@ namespace Infra.Database
                 try
                 {
                     var context = services.GetRequiredService<TextBookAnswersContext>();
+                    // Para recriar o banco de dados para aplicar as mudanças no modelo, descomentar linha abaixo
+                    //context.Database.EnsureDeleted();
                     context.Database.EnsureCreated();
 
                 }
