@@ -21,7 +21,6 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
     private OnAnswerClick onAnswerClick;
     public int exerciseId;
 
-
     public AnswerAdapter(ArrayList<Answer> answers, OnAnswerClick onAnswerClick,int exerciseId){
 
         this.answers = answers;
@@ -64,12 +63,15 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
             super(itemView);
             answer = itemView.findViewById(R.id.answer_text);
             upvotes = itemView.findViewById(R.id.upvotes);
+            downvotes = itemView.findViewById(R.id.downvotes);
+
             this.exerciseId = exerciseId;
 
             itemView.findViewById(R.id.upvote).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Repository.upvote(Repository.getAnswer(exerciseId,position));
+                    upvotes.setText(Integer.toString(Integer.parseInt(upvotes.getText().toString())+1));
                 }
             });
 
@@ -77,11 +79,10 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
                 @Override
                 public void onClick(View view) {
                     Repository.downvote(Repository.getAnswer(exerciseId,position));
+                    downvotes.setText(Integer.toString(Integer.parseInt(downvotes.getText().toString())+1));
                 }
             });
 
-
-            downvotes = itemView.findViewById(R.id.downvotes);
             this.onAnswerClick = onAnswerClick;
             itemView.setOnClickListener(this);
 

@@ -76,4 +76,8 @@ public class MainActivity extends AppCompatActivity implements BookAdapter.OnBoo
         startActivity(intent);
     }
 
+    public void removeText(View vew){
+        ((EditText)findViewById(R.id.book_search)).setText("");
+    }
+
 }
