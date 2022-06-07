@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements BookAdapter.OnBoo
         bookDatabase = BookDatabase.getInstance(this);
         bookDao = bookDatabase.bookDao();
 
-        books = new ArrayList<>();
+        books = Repository.getMostPopularBooks();
 
         //books.addAll(bookDao.getBooks());
 
@@ -49,11 +49,6 @@ public class MainActivity extends AppCompatActivity implements BookAdapter.OnBoo
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-        books.add(new Book("Livro teste 1"));
-        books.add(new Book("Livro teste 2"));
-        books.add(new Book("Livro teste 3"));
-        books.add(new Book("Livro teste 4"));
-        books.add(new Book("Livro teste 5"));
         adapter.notifyDataSetChanged();
 
 

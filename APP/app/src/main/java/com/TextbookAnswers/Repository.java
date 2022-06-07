@@ -104,14 +104,9 @@ public class Repository {
         return b;
     }
 
-    public static ArrayList<Book> getMostPopularBooks(String term){
+    public static ArrayList<Book> getMostPopularBooks(){
 
-        ArrayList<Book> exercises = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            exercises.add(new Book(term+i));
-        }
-
-        return exercises;
+        return searchBooks("");
     }
 
 
