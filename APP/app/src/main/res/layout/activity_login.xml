@@ -102,7 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Não possui contra?"
+        android:text="Não possui conta?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_entrar" />
@@ -113,7 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:onClick="cadastrar"
-        android:text="Cadrastre-se"
+        android:text="Cadastre-se"
         android:textColor="@color/purple"
         android:textSize="16sp"
         android:textStyle="bold"
