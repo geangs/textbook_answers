@@ -86,15 +86,29 @@ public class Repository {
     }
 
     public static ArrayList<Exercise> getExercises(int chapterId){
-        //return todos os exercicio do capitulo com id chapterId
+        ApiRequest request = new ApiRequest("/Question/"+chapterId);
+        try {
+            request.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ArrayList<Exercise> b= new ArrayList<>();
 
-        ArrayList<Exercise> c = new ArrayList<>();
-        for (Exercise exercise : exercises) {
-            if(exercise.chapterId == chapterId)
-                c.add(exercise);
+        try {
+            JSONArray jsonArray = new JSONArray(request.response);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject json = jsonArray.getJSONObject(i);
+                b.add(new Exercise(chapterId,json.getInt("questionNumber")));
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
-        return c;
+        return b;
     }
 
     public static ArrayList<Answer> getAnswers(int exerciseId){
@@ -155,9 +169,26 @@ public class Repository {
     }
 
     public static int getChapterId(int bookId,int chapterNumber){
-        for(Chapter chapter : chapters){
-            if(chapter.bookId == bookId && chapter.number == chapterNumber)
-                return chapter.id;
+        ApiRequest request = new ApiRequest("/Chapter/"+bookId);
+        try {
+            request.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        try {
+            JSONArray jsonArray = new JSONArray(request.response);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject json = jsonArray.getJSONObject(i);
+                if(json.getInt("chapterNumber") == chapterNumber)
+                    return json.getInt("id");
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
         return -1;
