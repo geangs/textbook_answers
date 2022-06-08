@@ -62,5 +62,6 @@ Disponível em: https://www.figma.com/file/byj5GnZjraBohLwEQUuJWM/Textbook-Answe
 
 ## Arquitetura
 
-![hexagonal](https://user-images.githubusercontent.com/81477445/172554731-05405e11-19c4-4b86-a3ec-2c3c08246883.png)
+
+![arquitetura_hexagonal](https://user-images.githubusercontent.com/81477445/172556938-b05e1187-8e7e-44ae-ae5f-5c1d21bdf939.png)
 
