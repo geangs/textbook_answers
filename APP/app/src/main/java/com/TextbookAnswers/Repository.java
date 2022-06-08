@@ -101,7 +101,7 @@ public class Repository {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
                 b.add(new Exercise(chapterId,json.getInt("questionNumber")));
-
+                //update recycler with questoin number
             }
 
         } catch (JSONException e) {
@@ -112,15 +112,29 @@ public class Repository {
     }
 
     public static ArrayList<Answer> getAnswers(int exerciseId){
-        //retorna todas as repostas do exercicio com id exerciseId
+        ApiRequest request = new ApiRequest("/Answer/"+exerciseId);
+        try {
+            request.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ArrayList<Answer> b= new ArrayList<>();
 
-        ArrayList<Answer> a = new ArrayList<>();
-        for(Answer answer : answers){
-            if(answer.questionId == exerciseId)
-                a.add(answer);
+        try {
+            JSONArray jsonArray = new JSONArray(request.response);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject json = jsonArray.getJSONObject(i);
+                b.add(new Answer(json.getString("question"),json.getString("text"),json.getInt("upvotes"),json.getInt("downvotes")));
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
-        return a;
+        return b;
     }
 
     public static ArrayList<Book> searchBooks(String term){
@@ -158,11 +172,26 @@ public class Repository {
 
 
     public static int getExerciseId(int chapterId,int exerciseNumber){
-        //retorna o id do exercicio exerciseNumber do capitlo com id = chapterId
+        ApiRequest request = new ApiRequest("/Question/"+chapterId);
+        try {
+            request.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        for(Exercise exercise : exercises){
-            if(exercise.chapterId == chapterId && exercise.number == exerciseNumber)
-                return exercise.id;
+        try {
+            JSONArray jsonArray = new JSONArray(request.response);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject json = jsonArray.getJSONObject(i);
+                if(json.getInt("questionNumber") == exerciseNumber)
+                    return json.getInt("id");
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
         return -1;
@@ -177,7 +206,7 @@ public class Repository {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
+
         try {
             JSONArray jsonArray = new JSONArray(request.response);
             for (int i = 0; i < jsonArray.length(); i++) {
