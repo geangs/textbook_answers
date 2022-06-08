@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity {
 
         Repository.init();
 
-        ApiRequest task = new ApiRequest();
+        ApiRequest task = new ApiRequest("");
         task.execute();
 
     }

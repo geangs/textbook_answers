@@ -2,7 +2,12 @@ package com.textbookanswers;
 
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class Repository {
 
@@ -95,10 +100,27 @@ public class Repository {
 
     public static ArrayList<Book> searchBooks(String term){
 
-        ArrayList<Book> b = new ArrayList<>();
-        for(Book book : books){
-            if(book.title.toLowerCase().contains(term.toLowerCase()))
-                b.add(book);
+        ApiRequest request = new ApiRequest("/Book");
+        try {
+            request.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ArrayList<Book> b= new ArrayList<>();
+
+        try {
+            JSONArray bookJson = new JSONArray(request.response);
+            for (int i = 0; i < bookJson.length(); i++) {
+                JSONObject bookObject = bookJson.getJSONObject(i);
+                if(bookObject.getString("title").toLowerCase().contains(term.toLowerCase()))
+                    b.add(new Book(bookObject.getInt("id"),bookObject.getString("title")));
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
         return b;

@@ -16,11 +16,18 @@ public class ApiRequest extends AsyncTask<URL, Void, Integer> {
 
 
     public String LOG_TAG = "Aaaaaaaaaaaaaaaaaaaaa";
-    public String USGS_REQUEST_URL = "https://textbookanswers.felipecordeiro.dev/Book/6";
+    public String USGS_REQUEST_URL = "https://textbookanswers.felipecordeiro.dev";
+
+    public String request;
+    String response;
+
+    public ApiRequest(String request) {
+        this.request = request;
+    }
 
     @Override
     protected Integer doInBackground(URL... urls) {
-        URL url = createUrl(USGS_REQUEST_URL);
+        URL url = createUrl(USGS_REQUEST_URL+request);
 
         String jsonResponse = "";
         try {
@@ -29,7 +36,7 @@ public class ApiRequest extends AsyncTask<URL, Void, Integer> {
 
         }
 
-        Log.i("aaaaaaaaaa",jsonResponse);
+        response = jsonResponse;
         return 1;
     }
 
