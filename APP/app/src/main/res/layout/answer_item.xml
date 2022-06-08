@@ -7,37 +7,39 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp">
 
         <ImageView
             android:id="@+id/downvote"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:rotation="180"
+            android:layout_marginTop="9dp"
             app:layout_constraintStart_toEndOf="@+id/upvotes"
             app:layout_constraintTop_toBottomOf="@+id/answer_text"
-            app:srcCompat="@drawable/like" />
+            app:srcCompat="@drawable/icon_thumbsdown" />
 
         <ImageView
             android:id="@+id/upvote"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/answer_text"
-            app:srcCompat="@drawable/like" />
+            app:srcCompat="@drawable/icon_thumbsup" />
 
         <TextView
             android:id="@+id/answer_text"
             android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:paddingBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -63,5 +65,15 @@
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/downvote"
             app:layout_constraintTop_toBottomOf="@+id/answer_text" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="usuario_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answer_text"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
