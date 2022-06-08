@@ -4,9 +4,8 @@ public class Answer {
 
     public int id,questionId;
 
-    //numero da resposta de acordo com quantas o exercicio tem
     public int number;
-    public String question,answer;
+    public String question,answer,user;
     public int upvotes,downvotes;
 
     public Answer(int id,int questionId,String answer, int upvotes, int downvotes) {

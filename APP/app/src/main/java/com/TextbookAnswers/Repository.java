@@ -131,7 +131,9 @@ public class Repository {
             JSONArray jsonArray = new JSONArray(request.response);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
-                b.add(new Answer(json.getString("question"),json.getString("text"),json.getInt("upvotes"),json.getInt("downvotes")));
+                b.add(new Answer(json.getString("question"),json.getString("text"),json.getInt("upvotes"),json.getInt("downvotes")){
+
+                });
 
             }
 
@@ -252,8 +254,6 @@ public class Repository {
     public static void downvote(Answer answer){
 
     }
-
-
 
     public static boolean validateUser(User user){
         return true;
