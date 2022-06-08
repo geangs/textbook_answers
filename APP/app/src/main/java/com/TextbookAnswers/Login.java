@@ -36,14 +36,6 @@ public class Login extends AppCompatActivity {
 
         Repository.init();
 
-        try {
-            new ApiPost("/Book").execute().get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
     }
 
     public void entrar(View view){
@@ -51,7 +43,11 @@ public class Login extends AppCompatActivity {
         String name = ((EditText)findViewById(R.id.login_name)).getText().toString();
         String password = ((EditText)findViewById(R.id.login_password)).getText().toString();
 
-        if(Repository.validateUser(new User(name,password)))
+        if(Repository.validateUser(new User(name,password){
+            {
+                login = name;
+            }
+        }))
             startActivity(new Intent(this, MainActivity.class));
         else{
             Toast.makeText(getApplicationContext(),

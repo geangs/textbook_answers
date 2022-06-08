@@ -21,10 +21,11 @@ public class ApiPost extends AsyncTask<URL, Void, Integer> {
     public String baseUrl = "https://textbookanswers.felipecordeiro.dev";
 
     public String request;
-    String response;
+    String response,json;
 
-    public ApiPost(String request) {
+    public ApiPost(String request,String jsonString) {
         this.request = request;
+        this.json = jsonString;
     }
 
     @Override
@@ -63,23 +64,30 @@ public class ApiPost extends AsyncTask<URL, Void, Integer> {
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
 
             urlConnection.setRequestMethod("POST");
-            urlConnection.setDoInput(true);
+
+            urlConnection.setRequestProperty("Content-Type", "application/json");
+            urlConnection.setRequestProperty("Accept", "application/json");
+
+            //urlConnection.setDoInput(true);
             urlConnection.setDoOutput(true);
 
-            OutputStream out = new BufferedOutputStream(urlConnection.getOutputStream());
-            BufferedWriter writer = new BufferedWriter(
-                    new OutputStreamWriter(out, "UTF-8"));
-            writer.write("{\n" +
-                    "  \"id\": 0,\n" +
-                    "  \"title\": \"string\",\n" +
-                    "  \"cover\": \"string\",\n" +
-                    "  \"author\": \"string\"\n" +
-                    "}");
+            String jsonInputString = json;
+            try(OutputStream os = urlConnection.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
 
             urlConnection.connect();
 
-            inputStream = urlConnection.getInputStream();
-            jsonResponse = readFromStream(inputStream);
+            try(BufferedReader br = new BufferedReader(
+                    new InputStreamReader(urlConnection.getInputStream(), "utf-8"))) {
+                StringBuilder response = new StringBuilder();
+                String responseLine = null;
+                while ((responseLine = br.readLine()) != null) {
+                    response.append(responseLine.trim());
+                }
+                this.response = response.toString();
+            }
             int a =1;
 
 

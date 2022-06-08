@@ -29,7 +29,7 @@ public class AddAnswer extends AppCompatActivity {
 
     public void enviar(View view) {
 
-        if(Repository.addAnswer(((EditText)findViewById(R.id.solution_text)).getText().toString(),extras.getString("exercise_id"))) {
+        if(Repository.addAnswer(((EditText)findViewById(R.id.solution_text)).getText().toString(),extras.getInt("exercise_id"))) {
 
             Toast.makeText(getApplicationContext(),
                     "Resposta enviada",

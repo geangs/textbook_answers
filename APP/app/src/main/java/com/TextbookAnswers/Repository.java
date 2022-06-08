@@ -256,14 +256,61 @@ public class Repository {
     }
 
     public static boolean validateUser(User user){
+        ApiPost post = new ApiPost("/User/login","{\n" +
+                "  \"login\": \""+user.login+"\",\n" +
+                "  \"password\": \""+user.password+"\"\n" +
+                "}");
+        try {
+            post.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String a = post.response;
+
         return true;
     }
 
     public static boolean registerUser(User user){
+        ApiPost post = new ApiPost("/User","{\n" +
+                "  \"id\": 0,\n" +
+                "  \"name\": \""+ user.name+"\",\n" +
+                "  \"email\": \""+ user.email+"\",\n" +
+                "  \"login\": \""+ user.login+"\",\n" +
+                "  \"password\": \""+ user.password+"\"\n" +
+                "}");
+        try {
+            post.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String a = post.response;
         return true;
     }
 
-    public static boolean addAnswer(String answer,String exerciseId){
+    public static boolean addAnswer(String answer,int exerciseId){
+        ApiPost post = new ApiPost("/Answer","{\n" +
+                "\"id\": 0,\n" +
+                "\"text\": \""+answer+"\",\n" +
+                "\"upvotes\": 0,\n" +
+                "\"downvotes\": 0,\n" +
+                "\"questionId\": "+exerciseId+",\n" +
+                "\"authorId\": 1\n" +
+                "}");
+        try {
+            post.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String a = post.response;
         return true;
     }
 

@@ -1,7 +1,7 @@
 package com.textbookanswers;
 
 public class User {
-    public String name,email,password;
+    public String login,name,email,password;
 
     public User(String name, String password) {
         this.name = name;
