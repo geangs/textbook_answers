@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SignIn extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class SignIn extends AppCompatActivity {
                     "Cadastro bem sucedido",
                     Toast.LENGTH_SHORT).show();
 
-            SignIn context = this;
+            SignUpActivity context = this;
             final Handler handler = new Handler(Looper.getMainLooper());
             handler.postDelayed(new Runnable() {
                 @Override
