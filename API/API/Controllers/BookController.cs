@@ -32,5 +32,11 @@ namespace API.Controllers
         {
             return bookRepository.Get(bookId);
         }
+
+        [HttpGet("search/{query}")]
+        public IEnumerable<Book> Search(string query)
+        {
+            return bookRepository.SearchBooks(query);
+        }
     }
 }

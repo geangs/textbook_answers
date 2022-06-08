@@ -1,6 +1,7 @@
 ﻿using Domain.Adapters;
 using Domain.Entities;
 using Infra.Database.Context;
+using System.Linq;
 
 namespace Infra.Database.Repositories
 {
@@ -26,6 +27,14 @@ namespace Infra.Database.Repositories
         public IEnumerable<Book> GetAll()
         {
             return context.Books.AsEnumerable();
+        }
+
+
+
+        public IEnumerable<Book> SearchBooks(string query)
+        {
+            return context.Books.Where(item => item.Title.ToLowerInvariant().Contains(query.ToLowerInvariant()) || 
+            item.Author.ToLowerInvariant().Contains(query.ToLowerInvariant()));
         }
     }
 }

@@ -12,5 +12,6 @@ namespace Domain.Adapters
         IEnumerable<Book> GetAll();
         Book? Get(int id);
         void Add(Book book);
+        IEnumerable<Book> SearchBooks(string query);
     }
 }
