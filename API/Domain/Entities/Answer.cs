@@ -16,9 +16,9 @@ namespace Domain.Entities
         public int Score => Upvotes - Downvotes;
 
         public int QuestionId { get; set; }
-        public Question Question { get; set; }
+        public Question? Question { get; set; }
 
         public int AuthorId { get; set; }
-        public User Author { get; set; }
+        public User? Author { get; set; }
     }
 }
