@@ -62,6 +62,11 @@ Disponível em: https://www.figma.com/file/byj5GnZjraBohLwEQUuJWM/Textbook-Answe
 
 ## Arquitetura
 
+### Arquitetura Hexagonal
 
 ![arquitetura_hexagonal](https://user-images.githubusercontent.com/81477445/172556938-b05e1187-8e7e-44ae-ae5f-5c1d21bdf939.png)
+
+### Domain-Driven Design
+
+![ddd](https://user-images.githubusercontent.com/81477445/172562440-894c0938-4913-4b7c-a643-d9d0bcf76f22.png)
 
