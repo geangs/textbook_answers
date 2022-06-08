@@ -60,3 +60,7 @@ Além do envio direto da solução para os usuários, serão feitos posts com os
 
 Disponível em: https://www.figma.com/file/byj5GnZjraBohLwEQUuJWM/Textbook-Answers?node-id=0%3A1
 
+## Arquitetura
+
+![hexagonal](https://user-images.githubusercontent.com/81477445/172554731-05405e11-19c4-4b86-a3ec-2c3c08246883.png)
+
