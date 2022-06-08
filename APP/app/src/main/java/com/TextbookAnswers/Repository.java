@@ -100,7 +100,12 @@ public class Repository {
             JSONArray jsonArray = new JSONArray(request.response);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
-                b.add(new Exercise(chapterId,json.getInt("questionNumber")));
+                b.add(new Exercise(chapterId,json.getInt("questionNumber")){
+                    {
+                        id = json.getInt("id");
+                        question = json.getString("text");
+                    }
+                });
                 //update recycler with questoin number
             }
 

@@ -30,7 +30,7 @@ public class AnswerActivity extends AppCompatActivity implements AnswerAdapter.O
 
         extras = getIntent().getExtras();
 
-        ((TextView)findViewById(R.id.answer_question)).setText(Repository.getExercise(extras.getInt("exercise_id")).question);
+        ((TextView)findViewById(R.id.answer_question)).setText(extras.getString("question"));
 
         answers = Repository.getAnswers(extras.getInt("exercise_id"));
 
@@ -50,6 +50,7 @@ public class AnswerActivity extends AppCompatActivity implements AnswerAdapter.O
     public void addAnswer(View view){
         Intent intent = new Intent(this,AddAnswer.class);
         intent.putExtra("exercise_id",extras.getInt("exercise_id"));
+        intent.putExtra("question",extras.getString("question"));
         startActivity(intent);
     }
 }

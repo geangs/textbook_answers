@@ -23,7 +23,7 @@ public class AddAnswer extends AppCompatActivity {
 
         extras = getIntent().getExtras();
 
-        ((TextView)findViewById(R.id.add_answer_question)).setText(Repository.getExercise(extras.getInt("exercise_id")).question);
+        ((TextView)findViewById(R.id.add_answer_question)).setText(extras.getString("question"));
 
     }
 
