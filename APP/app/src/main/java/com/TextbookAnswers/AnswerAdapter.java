@@ -44,6 +44,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
         answerViewHolder.upvotes.setText(Integer.toString(answer.upvotes));
         answerViewHolder.downvotes.setText(Integer.toString(answer.downvotes));
         answerViewHolder.position  = answerViewHolder.getAdapterPosition();
+        answerViewHolder.user.setText(answer.user);
 
     }
 
@@ -54,7 +55,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
 
     public static class AnswerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public TextView answer,upvotes,downvotes;
+        public TextView answer,upvotes,downvotes,user;
         public int position,exerciseId;
         public OnAnswerClick onAnswerClick;
 
@@ -64,6 +65,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
             answer = itemView.findViewById(R.id.answer_text);
             upvotes = itemView.findViewById(R.id.upvotes);
             downvotes = itemView.findViewById(R.id.downvotes);
+            user = itemView.findViewById(R.id.answer_user);
 
             this.exerciseId = exerciseId;
 

@@ -24,6 +24,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.concurrent.ExecutionException;
 
 public class Login extends AppCompatActivity {
 
@@ -35,8 +36,13 @@ public class Login extends AppCompatActivity {
 
         Repository.init();
 
-        ApiRequest task = new ApiRequest("");
-        task.execute();
+        try {
+            new ApiPost("/Book").execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 

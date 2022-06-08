@@ -17,9 +17,10 @@
             android:layout_height="27dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="9dp"
+            android:rotation="180"
             app:layout_constraintStart_toEndOf="@+id/upvotes"
             app:layout_constraintTop_toBottomOf="@+id/answer_text"
-            app:srcCompat="@drawable/icon_thumbsdown" />
+            app:srcCompat="@drawable/like" />
 
         <ImageView
             android:id="@+id/upvote"
@@ -29,7 +30,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/answer_text"
-            app:srcCompat="@drawable/icon_thumbsup" />
+            app:srcCompat="@drawable/like" />
 
         <TextView
             android:id="@+id/answer_text"
@@ -67,7 +68,7 @@
             app:layout_constraintTop_toBottomOf="@+id/answer_text" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/answer_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
