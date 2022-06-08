@@ -59,19 +59,30 @@ public class Repository {
         }
     }
 
-
-    //funcoes para implementar
     public static ArrayList<Chapter> getChapters(int bookId){
-        //retorna todas os capitulos do livro com id = bookID
+        ApiRequest request = new ApiRequest("/Chapter/"+Integer.toString(bookId));
+        try {
+            request.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ArrayList<Chapter> b= new ArrayList<>();
 
+        try {
+            JSONArray bookJson = new JSONArray(request.response);
+            for (int i = 0; i < bookJson.length(); i++) {
+                JSONObject json = bookJson.getJSONObject(i);
+                b.add(new Chapter(json.getInt("id"),bookId,json.getInt("chapterNumber"),json.getString("name")));
 
-        ArrayList<Chapter> c = new ArrayList<>();
-        for (Chapter chapter : chapters) {
-            if(chapter.bookId == bookId)
-                c.add(chapter);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
-        return c;
+        return b;
     }
 
     public static ArrayList<Exercise> getExercises(int chapterId){
@@ -115,7 +126,7 @@ public class Repository {
             for (int i = 0; i < bookJson.length(); i++) {
                 JSONObject bookObject = bookJson.getJSONObject(i);
                 if(bookObject.getString("title").toLowerCase().contains(term.toLowerCase()))
-                    b.add(new Book(bookObject.getInt("id"),bookObject.getString("title")));
+                    b.add(new Book(bookObject.getInt("id"),bookObject.getString("title"),bookObject.getString("author")));
 
             }
 

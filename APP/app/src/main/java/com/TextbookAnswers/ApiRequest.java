@@ -16,7 +16,7 @@ public class ApiRequest extends AsyncTask<URL, Void, Integer> {
 
 
     public String LOG_TAG = "Aaaaaaaaaaaaaaaaaaaaa";
-    public String USGS_REQUEST_URL = "https://textbookanswers.felipecordeiro.dev";
+    public String baseUrl = "https://textbookanswers.felipecordeiro.dev";
 
     public String request;
     String response;
@@ -27,7 +27,7 @@ public class ApiRequest extends AsyncTask<URL, Void, Integer> {
 
     @Override
     protected Integer doInBackground(URL... urls) {
-        URL url = createUrl(USGS_REQUEST_URL+request);
+        URL url = createUrl(baseUrl+request);
 
         String jsonResponse = "";
         try {
