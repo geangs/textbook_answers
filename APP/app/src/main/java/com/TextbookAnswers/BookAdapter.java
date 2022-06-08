@@ -2,11 +2,18 @@ package com.textbookanswers;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
@@ -34,6 +41,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         Book book = books.get(i);
         bookViewHolder.bookTitle.setText(book.title);
         bookViewHolder.bookAuthor.setText(book.author);
+        new DownloadImageTask(bookViewHolder.bookCover).execute(book.coverUrl);
 
     }
 
@@ -46,6 +54,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
         public TextView bookTitle;
         public TextView bookAuthor;
+        public ImageView bookCover;
 
         public OnBookClick onBookClick;
 
@@ -54,6 +63,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             super(itemView);
             bookTitle = itemView.findViewById(R.id.fjdsiao);
             bookAuthor = itemView.findViewById(R.id.autor);
+            bookCover = itemView.findViewById(R.id.book_cover);
+
             this.onBookClick = onBookClick;
             itemView.setOnClickListener(this);
 
@@ -69,6 +80,31 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     public interface OnBookClick{
         void onBookClick(int position);
+    }
+
+    private static class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
     }
 
 }

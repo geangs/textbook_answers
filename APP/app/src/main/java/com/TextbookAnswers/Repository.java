@@ -159,7 +159,11 @@ public class Repository {
             for (int i = 0; i < bookJson.length(); i++) {
                 JSONObject bookObject = bookJson.getJSONObject(i);
                 if(bookObject.getString("title").toLowerCase().contains(term.toLowerCase()))
-                    b.add(new Book(bookObject.getInt("id"),bookObject.getString("title"),bookObject.getString("author")));
+                    b.add(new Book(bookObject.getInt("id"),bookObject.getString("title"),bookObject.getString("author")){
+                        {
+                            coverUrl = bookObject.getString("cover");
+                        }
+                    });
 
             }
 
