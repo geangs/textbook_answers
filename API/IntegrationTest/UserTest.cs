@@ -15,6 +15,7 @@ namespace IntegrationTest
 {
     class UserTest
     {
+        [Category("IntegrationTest")]
         [Test]
         public async Task Get_BookEndpointReturnSuccessAndCorrectContentType()
         {
@@ -27,6 +28,7 @@ namespace IntegrationTest
             response.Content.Headers.ContentType.ToString().Should().Be("application/json; charset=utf-8");
         }
 
+        [Category("IntegrationTest")]
         [Test, Order(1)]
         public async Task Post_AddUserEndpointReturnSuccess()
         {
@@ -51,6 +53,7 @@ namespace IntegrationTest
             response.EnsureSuccessStatusCode(); // Status Code 200-299
         }
 
+        [Category("IntegrationTest")]
         [Test, Order(2)]
         public async Task Post_AuthenticateEndpointReturnSuccess()
         {
@@ -76,6 +79,7 @@ namespace IntegrationTest
             autheticationResult.Should().Be("true");
         }
 
+        [Category("IntegrationTest")]
         [Test, Order(2)]
         public async Task Post_AuthenticateEndpointReturnFailure()
         {
