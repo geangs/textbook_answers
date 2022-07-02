@@ -11,6 +11,23 @@ namespace UnitTests.Infra
     {
 
         [Test]
+        public void AnswerRepository_UpvoteAnswer_AnswerDoesntExists_DoesntCallSaveChanges()
+        {
+            var contextMock = new Mock<TextBookAnswersContext>();
+            contextMock.Setup(x => x.Answers.Find(It.IsAny<int>())).Returns(() => null);
+
+
+            var answerRepository = new AnswerRepository(contextMock.Object);
+
+
+
+            answerRepository.UpvoteAnswer(1);
+
+            contextMock.Verify(context => context.SaveChanges(), Times.Never());
+
+        }
+
+        [Test]
         public void AnswerRepository_UpvoteAnswer_CallSaveChanges()
         {
             var answer = new Answer()
@@ -82,7 +99,22 @@ namespace UnitTests.Infra
 
             answer.Score.Should().Be(-1);
         }
-        //AddAnswer
+        [Test]
+        public void AnswerRepository_DownvoteAnswer_AnswerDoesntExists_DoesntCallSaveChanges()
+        {
+            var contextMock = new Mock<TextBookAnswersContext>();
+            contextMock.Setup(x => x.Answers.Find(It.IsAny<int>())).Returns(() => null);
+
+
+            var answerRepository = new AnswerRepository(contextMock.Object);
+
+
+
+            answerRepository.DownvoteAnswer(1);
+
+            contextMock.Verify(context => context.SaveChanges(), Times.Never());
+
+        }
 
         [Test]
         public void AnswerRepository_AddAnswer_SavesChanges()
