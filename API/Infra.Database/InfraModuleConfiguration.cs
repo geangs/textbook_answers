@@ -1,4 +1,5 @@
 ﻿using Domain.Adapters;
+using Domain.Entities;
 using Infra.Database.Context;
 using Infra.Database.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -30,19 +31,11 @@ namespace Infra.Database
             using (var scope = serviceProvider.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                try
-                {
-                    var context = services.GetRequiredService<TextBookAnswersContext>();
-                    // Para recriar o banco de dados para aplicar as mudanças no modelo, descomentar linha abaixo
-                    //context.Database.EnsureDeleted();
-                    context.Database.EnsureCreated();
+                var context = services.GetRequiredService<TextBookAnswersContext>();
+                // Para recriar o banco de dados para aplicar as mudanças no modelo, descomentar linha abaixo
+                //context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
 
-                }
-                catch (Exception ex)
-                {
-                    var logger = services.GetRequiredService<ILogger<TextBookAnswersContext>>();
-                    logger.LogError(ex, "An error occurred while seeding the database.");
-                }
             }
         }
     }
