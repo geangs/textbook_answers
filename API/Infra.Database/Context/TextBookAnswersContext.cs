@@ -12,10 +12,15 @@ namespace Infra.Database.Context
     {
         public TextBookAnswersContext(DbContextOptions<TextBookAnswersContext> options) : base(options) { }
 
-        public DbSet<Book> Books { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Chapter> Chapters { get; set; }
-        public DbSet<Question> Questions { get; set; }
-        public DbSet<Answer> Answers { get; set; }
+        public TextBookAnswersContext()
+        {
+
+        }
+
+        public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Chapter> Chapters { get; set; }
+        public virtual DbSet<Question> Questions { get; set; }
+        public virtual DbSet<Answer> Answers { get; set; }
     }
 }
